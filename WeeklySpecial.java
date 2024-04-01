@@ -4,7 +4,7 @@ public class WeeklySpecial{
     private String date;
     private int code;
     private static int lastNumber = 1045;
-    private ArrayList<Vehicle> specials;
+    private ArrayList<Vehicle> specials; // make it type Special
     
     public WeeklySpecial(){
         this.date = "unknown";
