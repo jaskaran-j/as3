@@ -5,11 +5,23 @@ import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
+import java.beans.XMLEncoder;
+import java.io.FileOutputStream;
+
+/**
+ * ACS-1904 Assignment 3
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
+ */
 public class As3CDriver{
-    public static void main(String[] args){
-        WeeklySpecial weeklySpecial = new WeeklySpecial();
+    public static void main(String[] args) throws FileNotFoundException{
+        // fields
+        WeeklySpecial weeklySpecial = new WeeklySpecial("April 3");
         ArrayList<Vehicle> vehicles = new ArrayList();
+        ArrayList<Vehicle> premium = new ArrayList();
+        ArrayList<Vehicle> standard = new ArrayList();
         
+        // reading data
         XMLDecoder de;
         try{
             de = new XMLDecoder(new FileInputStream("As3B-vehicles.xml"));
@@ -21,14 +33,29 @@ public class As3CDriver{
             
         }
         
+        // storing data that was read from xml files
         if(de!=null){
-            vehicles = (ArrayList<Vehicle>) de.readObject();
+            premium = (ArrayList<Vehicle>) de.readObject();
+            standard = (ArrayList<Vehicle>) de.readObject();
             de.close();
             
         }
         
+        // adding premiums and standards to vehicles
+        for(Vehicle p: premium){
+            vehicles.add(p);
+            
+        }
+        
+        for(Vehicle s: standard){
+            vehicles.add(s);
+            
+        }
+        
+        // adding vehicles to weeklyspecial that meet the conditions
         for(Vehicle v: vehicles){
-            System.out.println(v.getMake());
+            //System.out.println(v.getMake());
+        
             if(v.getMake().equals("Ford") || v.getMake().equals("Lotus") || v.getMake().equals("Nissan")){
                 weeklySpecial.addVehicle(v);
                 
@@ -36,7 +63,19 @@ public class As3CDriver{
             
         }
         
-        weeklySpecial.printSpecials();
-            
+        // printing special information
+        weeklySpecial.displaySpecialInfo();
+        
+        
+        // writitng the data into xml file:
+        XMLEncoder en = new XMLEncoder(new FileOutputStream("As3C-specialInfo.xml"));
+        en.writeObject(weeklySpecial);
+        en.close();
+        
+        System.out.println("Weekly special info written to file");
+        
+        // end of program
+        System.out.println("end of program");
+        
     }
 }

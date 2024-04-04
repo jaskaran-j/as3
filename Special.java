@@ -1,9 +1,7 @@
-
 /**
- * Write a description of interface Special here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * ACS-1904 Assignment 3
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
  */
 public interface Special{
     

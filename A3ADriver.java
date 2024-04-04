@@ -7,7 +7,8 @@ import javax.swing.JOptionPane;
 
 /**
  * ACS-1904 Assignment 3
- * driver code for part A
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
  */
 public class A3ADriver
 {
@@ -103,41 +104,19 @@ public class A3ADriver
         System.out.println("XML files are being written.");
         
         // start your code here
+        // writing vehicles
         XMLEncoder en;
-        try{
-            en = new XMLEncoder(new FileOutputStream("As3-vehicles.xml"));
-            
-        }
-        catch(FileNotFoundException e){
-            en = null;
-            JOptionPane.showMessageDialog(null, "File cannot be accessed");
-            
-        }
+        en = new XMLEncoder(new FileOutputStream("As3-vehicles.xml"));
+        en.writeObject(vehicles);        
+        en.close();
+        System.out.println("\nVehicles written to file successfully\n");
         
-        if(en!=null){
-            en.writeObject(vehicles);        
-            en.close();
-            System.out.println("\nVehicles written to file successfully\n");
-        
-        }
-    
+        // writing inventory
         XMLEncoder enInvt;
-        try{
-            enInvt = new XMLEncoder( new FileOutputStream("As3-inventory.xml"));
-            
-        }
-        catch(FileNotFoundException e){
-            enInvt = null;
-            JOptionPane.showMessageDialog(null, "File cannot be accessed");
-            
-        }
-        
-        if(enInvt!=null){
-            enInvt.writeObject(inventory);
-            enInvt.close();
-            System.out.println("Inventory written to file successfully");
-    
-        }
+        enInvt = new XMLEncoder( new FileOutputStream("As3-inventory.xml"));
+        enInvt.writeObject(inventory);
+        enInvt.close();
+        System.out.println("Inventory written to file successfully");
         
         // end of your code
         System.out.println("\nend of program.");

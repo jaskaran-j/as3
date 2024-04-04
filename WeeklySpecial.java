@@ -1,82 +1,76 @@
-import java.util.ArrayList;
-
+ import java.util.ArrayList;
+/**
+ * ACS-1904 Assignment 3
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
+ */
 public class WeeklySpecial{
     private String date;
-    private int code;
     private static int lastNumber = 1045;
-    private ArrayList<Vehicle> specials; // make it type Special
+    private ArrayList<Special> specials;
     
     public WeeklySpecial(){
         this.date = "unknown";
-        this.code = nextNumber();
         specials = new ArrayList();
         
-    }
+    } 
     
     // full arg constructor
     public WeeklySpecial(String date){
         this.date = date;
-        this.code = nextNumber();
         specials = new ArrayList();
         
     }
     
+    // getters
     public String getDate(){
         return this.date;
         
     }
     
+    public ArrayList<Special> getSpecials(){
+        return this.specials;
+        
+    }
+    
+    // setters
     public void setDate(String date){
         this.date = date;
         
     }
     
-    public void displaySpecials(){
-        for(Vehicle v: specials){
-            System.out.println(v);
-            
-        }
+    public void setSpecials(ArrayList<Special> specials){
+        this.specials = specials;
         
     }
     
-    public int getSpecialCode(){
-        return this.code;
-        
-    }
-    
-    public void setSpecialCode(int code){
-        this.code = code;
-    }
-    
+    // utilities
     public void addVehicle(Vehicle v){
         v.setSpecialCode(nextNumber());
         specials.add(v);
         
     }
     
-    public String displaySpecialInfo(){
-        StringBuilder sb = new StringBuilder();
-        
-        sb.append("Date: " + this.date);
-        sb.append("Special ID\t\tVehicle");
-        
-        for(Vehicle v: specials){
-            sb.append(v.getSpecialCode() + "\t\t\t" + v.getMake() + " " + v.getModel());
-            
-        }
-        
-        return sb.toString();
-        
-    }
-    
-    public void printSpecials(){
-        for(Vehicle v: specials){
-            System.out.println(v);
-        }
-    }
     private int nextNumber(){
         return lastNumber++;
         
     }
+    
+    public void displaySpecialInfo(){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("Date: " + this.date + "\n");
+        
+        sb.append("Special ID\tVehicle\n");
+        
+        for(Special v: specials){
+            sb.append(v.getSpecialCode() + "\t\t" + v.getVehicleInfo() + "\n");
+            
+        }
+        
+        System.out.println(sb.toString());
+        
+    }
+    
     
 }

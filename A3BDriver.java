@@ -1,4 +1,3 @@
-
 import java.beans.XMLDecoder;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,9 +8,13 @@ import java.io.FileOutputStream;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.Collections;
-
+/**
+ * ACS-1904 Assignment 3
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
+ */
 public class A3BDriver extends InventoryComparator{
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException{
         ArrayList<Vehicle> vehicles = new ArrayList();
         ArrayList<Premium> premiums = new ArrayList();
         ArrayList<Standard> standards = new ArrayList();
@@ -63,23 +66,14 @@ public class A3BDriver extends InventoryComparator{
         System.out.println("\nWriting premiums and standards to xml file");
         
         XMLEncoder en;
-        try{
-            en = new XMLEncoder(new FileOutputStream("As3B-vehicles.xml"));
-            
-        }
-        catch(FileNotFoundException e){
-            en = null;
-            JOptionPane.showMessageDialog(null, "File cannot be accessed");
-            
-        }
+        en = new XMLEncoder(new FileOutputStream("As3B-vehicles.xml"));
+        en.writeObject(premiums);
+        en.writeObject(standards);
+        en.close();
         
-        if(en!=null){
-            en.writeObject(premiums);
-            en.writeObject(standards);
-            en.close();
-            System.out.println("\n*** Registration info has been written to As3B-vehicles.xml ***");
-            
-        }
+        System.out.println("\n*** Registration info has been written to As3B-vehicles.xml ***");
+        
+        // end of program
         System.out.println("end of program");
     }
 }

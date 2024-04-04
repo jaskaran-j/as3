@@ -1,4 +1,3 @@
-
 /**
  * ACS-1904 Assignment 3
  * Name: Jaskarandeep Singh Jashan
@@ -20,11 +19,18 @@ public enum PremiumPackage{
     private PremiumPackage(String d, int p){
         display = d;
         pricePerDay = p;
+        
     }
     
+    // getters
     // getPricePerDay() method gets the price of the package per day
     public int getPricePerDay(){
         return this.pricePerDay;
+        
+    }
+    
+    public String getDisplay(){
+        return this.display;
         
     }
 }

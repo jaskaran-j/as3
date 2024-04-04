@@ -6,12 +6,16 @@
  */
 
 public abstract class Vehicle implements Comparable<Vehicle>, Special{
-    // protected fields
+    // protected fields:
     protected String make;
     protected String model;
     protected String id;
     protected int basePrice;
+    
+    // static id
     private static int idSize = 1045;
+    
+    // A3C driver fields:
     private int specialCode;
     
     // extras
@@ -93,6 +97,23 @@ public abstract class Vehicle implements Comparable<Vehicle>, Special{
         
     }
     
+    // getters for As3C Driver
+    public String getVehicleInfo(){
+        return this.make + " " + this.model;
+        
+    }
+    
+    public int getSpecialCode(){
+        return this.specialCode;
+        
+    }
+    
+    // setters for As3C Drive
+    public void setSpecialCode(int specialCode){
+        this.specialCode = specialCode;
+        
+    }
+    
     // method to generate id
     private int generateID(){
         return idSize++;
@@ -122,19 +143,7 @@ public abstract class Vehicle implements Comparable<Vehicle>, Special{
         
     }
     
-    public String getVehicleInfo(){
-        return this.make + " " + this.model;
-        
-    }
-    public int getSpecialCode(){
-        return this.specialCode;
-        
-    }
-    
-    public void setSpecialCode(int specialCode){
-        this.specialCode = specialCode;
-        
-    }
+    // overridden toString
     @Override
     public String toString(){
         return this.make + ", " + this.model;

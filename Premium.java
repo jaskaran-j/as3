@@ -1,9 +1,10 @@
-
+/**
+ * ACS-1904 Assignment 3
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
+ */
 public class Premium extends Vehicle{
     // fields
-    //String make;
-    //String model;
-    //int basePrice;
     private PremiumPackage pack;
     
     // no arg
@@ -24,11 +25,13 @@ public class Premium extends Vehicle{
     // getters
     public PremiumPackage getPack(){
         return this.pack;
+        
     }
     
     // setters
     public void setPack(PremiumPackage pack){
         this.pack = pack;
+        
     }
     
     @Override

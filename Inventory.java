@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * ACS-1904 Assignment 3
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
+ */
 public class Inventory{
     // private fields
     private String name;
@@ -22,7 +27,7 @@ public class Inventory{
     
     // getters 
     public String getInventoryName(){
-        return this.name;
+        return this.name; 
         
     }
     
@@ -44,6 +49,7 @@ public class Inventory{
         
     }
     
+    // displayVehicleList
     public String displayVehicleList(){
         StringBuilder sb = new StringBuilder();
         

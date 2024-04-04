@@ -1,4 +1,3 @@
-
 /**
  * ACS-1904 Assignment 3
  * Name: Jaskarandeep Singh Jashan
@@ -24,8 +23,14 @@ public enum Option{
         
     }
     
+    // getters
     // getPricePerDay return the rate of the option per day
     public int getPricePerDay(){
         return this.pricePerDay;
+    }
+    
+    public String getDisplay(){
+        return this.display;
+        
     }
 }

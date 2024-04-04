@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * ACS-1904 Assignment 3
+ * Name: Jaskarandeep Singh Jashan
+ * Student Number: 3179009
+ */
 public class Standard extends Vehicle{
     // fields
     Option op;
@@ -11,6 +15,7 @@ public class Standard extends Vehicle{
     public Standard(){
         this.make = "unknown";
         this.model = "unknown";
+        this.basePrice = 0;
         options = new ArrayList();
         
     }
